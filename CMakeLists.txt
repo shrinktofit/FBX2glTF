@@ -240,6 +240,11 @@ target_include_directories(appFBX2glTF PUBLIC
 )
 target_link_libraries(appFBX2glTF libFBX2glTF)
 
+if (APPLE)
+  set(CMAKE_OSX_DEPLOYMENT_TARGET "10.2")
+  message("Deployment target: 10.2")
+endif()
+
 install (TARGETS libFBX2glTF appFBX2glTF
         RUNTIME DESTINATION bin
         ARCHIVE DESTINATION lib
